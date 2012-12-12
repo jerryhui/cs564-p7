@@ -1,18 +1,39 @@
 <html>
 
- <head><title>CS 564 PHP Project: Managing a Database of Books</title></head>
+ <head>
+  <title>Browse all users: CS 564-Instant Music Festival</title>
+  <link rel="stylesheet" type="text/css" href="instantFest.css" />
+ </head>
 
  <body>
+  <h1>Instant Music Festival</h1>
+  <?php include 'menu.php'; ?>
+  <?php include 'util.php'; ?>
+  
+  <h2>Advanced Search</h2>
+  <form method="post" action="advanced_search.php" class="searchform">
+   
+   <ul>
+    <li>
+     <span>Name (first, last, or band name)</span>
+     <input type="text" name="namepart" />
+    </li>
+    
+    <li>
+     <span>City</span>
+     <input type="text" name="city" />
+    </li>
+    
+    <li>
+     <span>State</span>
+     <?php listUSStates("state","WI"); ?>
+    </li>
+   </ul>
+   
+   <input type="submit" text="Search" />
+   <input type="reset" text="Reset" />
+  </form>
 
-This part provides an advanced search capability. That is, one should be able
-to search for books using a combination of attributes, such as title and price, 
-or title and quantity, etc.<p>
-
-We do not provide a sample implementation 
-for this part, in the book domain. You will have to implement such an advanced
-search capability for your project domain.
-
-
-</body>
+ </body>
 
 </html>
