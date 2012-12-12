@@ -19,6 +19,15 @@ a.icon.fb span { background-image: url(facebook_icon.png); }
 a.icon.linkedin span { background-image: url(linkedin.png); }
 
 /***** Data-specific formatting *****/
+table.users {
+    width: 100%;
+}
+
+table.users th {
+    background: #CCCCCC;
+    font-weight: bold;
+}
+
 table.users td {
     padding: .25em;
 }

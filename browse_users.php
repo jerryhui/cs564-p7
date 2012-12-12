@@ -7,6 +7,8 @@
 
  <body>
   <h1>Instant Music Festival</h1>
+  <?php include 'menu.php'; ?>
+  
   <h2>Musicians</h2>
   
   <table class="usertable">
