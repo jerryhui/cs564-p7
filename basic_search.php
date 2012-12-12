@@ -8,9 +8,9 @@
       Here are the search results (searched by title):<br>
        <table border="1" width="75%">
         <tr>
-         <td align="center" bgcolor="#cccccc"><b>Title</b></td>
-         <td align="center" bgcolor="#cccccc"><b>Author</b></td>
-         <td align="center" bgcolor="#cccccc"><b>Number of Copies</b></td>
+         <td align="center" bgcolor="#cccccc"><b>First Name</b></td>
+         <td align="center" bgcolor="#cccccc"><b>Last Name<br/>(or band name)</b></td>
+         <td align="center" bgcolor="#cccccc"><b>Email</b></td>
         </tr>	
  <?php
    // First check the itemid to see if it has been set
