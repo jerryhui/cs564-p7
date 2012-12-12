@@ -14,7 +14,7 @@ a.icon span {
     overflow: hidden;
     text-indent: -100em;
 }
-a.icon.email span { background-image: url(icon_email.gif); }
+a.icon.email span { background-image: url(email_icon.png); }
 a.icon.fb span { background-image: url(facebook_icon.png); }
 a.icon.linkedin span { background-image: url(linkedin.png); }
 
