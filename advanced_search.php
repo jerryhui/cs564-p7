@@ -11,12 +11,17 @@
   <?php include 'util.php'; ?>
   
   <?php
- if (isset($_POST['submit'])) {
+ if ( isset($_POST['submit']) ) {
   ?>
   <h2>Advanced Search: Result</h2>
+  <p>Implement search results here.</p>
   
-  <?php } else { ?>
+  <?php
+  } else {
+   ?>
+   
   <h2>Advanced Search</h2>
+  
   <?php
  }
   ?>
