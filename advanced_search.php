@@ -46,7 +46,7 @@
     </li>
    </ul>
    
-   <input type="submit" text="Search" />
+   <input type="submit" text="Search" name="submit" value="submit" />
    <input type="reset" text="Reset" />
   </form>
 
