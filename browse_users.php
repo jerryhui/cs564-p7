@@ -1,6 +1,6 @@
 <html>
 
-<head>
+ <head>
   <title>Browse all users: CS 564-Instant Music Festival</title>
   <link rel="stylesheet" type="text/css" href="instantFest.css" />
  </head>
