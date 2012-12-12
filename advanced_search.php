@@ -14,7 +14,7 @@
   
  if ( isset($_POST['submit']) ) {
   // build query
-  $query = "SELECT *,(M.uid IS NULL) AS isBand FROM users U, locations L left join musicians M on U.uid=M.uid left join bands B on U.uid=B.uid WHERE U.lid=L.lid";
+  $query = "SELECT *,(M.uid IS NULL) AS isBand FROM instant_schema.users U, locations instant_schema.L left join instant_schema.musicians M on U.uid=M.uid left join instant_schema.bands B on U.uid=B.uid WHERE U.lid=L.lid";
   $whereclause = "";
   
   if ( isset($_POST['namepart']) )
