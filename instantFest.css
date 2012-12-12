@@ -48,3 +48,8 @@ table.users th {
 table.users td {
     padding: .25em;
 }
+
+.searchresult span { display: block; }
+.searchresult .name { padding-left: 35px; background-position: left; min-height: 32px; background-repeat: no-repeat; }
+.searchresult .name.band { background-image: url(icon-band.png); }
+.searchresult .name.musician { background-image: url(icon-male.png); }
