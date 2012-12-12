@@ -22,7 +22,7 @@
   }
   $lastname = $_POST['lastname'];
   // Connect to the Database
-  pg_connect('dbname=cs564_f12 host=postgres.cs.wisc.edu port=5432 user=jerryhui password=M3rryMonth') 
+  pg_connect('dbname=cs564_f12 host=postgres.cs.wisc.edu') 
 	or die ("Couldn't Connect ".pg_last_error()); 
   // Get category name and item counts
   $query = "SELECT * FROM instant_schema.users where lastname='".$lastname."'";
@@ -39,14 +39,14 @@
   while($row = pg_fetch_array($result,NULL,PGSQL_ASSOC))  {
     echo "        <tr>";
     echo "\n         <td align=\"center\">";
-    echo "\n          ".$row['title'];
+    echo "\n          ".$row['firstname'];
     echo "\n         </td>";
     echo "\n         <td align=\"center\">";
 
-    echo "\n          ".$row['author'];
+    echo "\n          ".$row['lastname'];
     echo "\n         </td>";
     echo "\n         <td align=\"center\">";
-    echo "\n          ".$row['num'];
+    echo "\n          ".$row['email'];
     echo "\n         </td>";
     echo "\n        </tr>";
   }
@@ -55,7 +55,7 @@
  </table>
      </td>
     </tr>
-        <?php echo "<a href=\"https://cs564.cs.wisc.edu/halit/index.html\">Back to main page</a>\n"?>
+        <?php echo "<a href=\"index.html\">Back to main page</a>\n"?>
  </body>
 
 </html>
