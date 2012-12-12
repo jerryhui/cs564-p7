@@ -10,7 +10,16 @@
   <?php include 'menu.php'; ?>
   <?php include 'util.php'; ?>
   
+  <?php
+ if (isset($_POST['submit'])) {
+  ?>
+  <h2>Advanced Search: Result</h2>
+  
+  <?php } else { ?>
   <h2>Advanced Search</h2>
+  <?php
+ }
+  ?>
   <form method="post" action="advanced_search.php" class="searchform">
    
    <ul>
