@@ -71,8 +71,6 @@
     <th>Email</th>
     <th>Location</th>
     <th>Facebook</th>
-    <th>LinkedIn</th>
-    <th>Website</th>
     <th>Influence</th>
    </tr>
 
@@ -102,12 +100,6 @@
     echo "\n         </td>";
     echo "\n         <td>";
     if ($row['fbid']!="") echo "\n          <a href=\"http://facebook.com/".$row['fbid']."\" class='icon fb'><span> </span></a>";
-    echo "\n         </td>";
-    echo "\n         <td>";
-    if ($row['linkedin']!="") echo "\n          <a href=\"".$row['linkedin']."\" class='icon linkedin'><span> </span></a>";
-    echo "\n         </td>";
-    echo "\n         <td>";
-    if ($row['website']!="") echo "\n          <a href=\"".$row['website']."\">".$row['website']."</a>";
     echo "\n         </td>";
     echo "\n         <td>";
     echo "\n          ".$row['soundslike'];
