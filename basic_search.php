@@ -14,18 +14,18 @@
         </tr>	
  <?php
    // First check the itemid to see if it has been set
-  if (! isset($_POST['title'])) {
+  if (! isset($_POST['lastname'])) {
     echo "  <h3><i>Error, title not set to an acceptable value</i></h3>\n".
-        " <a href=\"https://cs564.cs.wisc.edu/halit/index.html\">Back to main page</a>\n".
+        " <a href=\"index.html\">Back to main page</a>\n".
 	" </body>\n</html>\n";
     exit();
   }
-  $title = $_POST['title'];
+  $lastname = $_POST['lastname'];
   // Connect to the Database
   pg_connect('dbname=cs564_f12 host=postgres.cs.wisc.edu') 
 	or die ("Couldn't Connect ".pg_last_error()); 
   // Get category name and item counts
-  $query = "SELECT * FROM stage7_book_schema.book where title='".$title."'";
+  $query = "SELECT * FROM instant_schema.users where lastname='".$lastname."'";
   // Execute the query and check for errors
   $result = pg_query($query);
   if (!$result) {
