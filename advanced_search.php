@@ -11,6 +11,8 @@
   <?php include 'util.php'; ?>
   
   <?php
+ if ( isset($_POST['submit']) )  echo "Received submission";
+  
  if ( isset($_POST['submit']) ) {
   ?>
   <h2>Advanced Search: Result</h2>
