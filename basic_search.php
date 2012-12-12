@@ -22,7 +22,7 @@
   }
   $lastname = $_POST['lastname'];
   // Connect to the Database
-  pg_connect('dbname=cs564_f12 host=postgres.cs.wisc.edu') 
+  pg_connect('dbname=cs564_f12 host=postgres.cs.wisc.edu port=5432 user=jerryhui password=M3rryMonth') 
 	or die ("Couldn't Connect ".pg_last_error()); 
   // Get category name and item counts
   $query = "SELECT * FROM instant_schema.users where lastname='".$lastname."'";
