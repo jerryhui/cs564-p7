@@ -6,3 +6,19 @@ body {
 h1 { font-size: 22px; }
 h2 { font-size: 20px; }
 h3 { font-size: 16px; }
+
+a.icon span {
+    display: block;
+    width: 32px;
+    height: 32px;
+    overflow: hidden;
+    text-indent: -100em;
+}
+a.icon.email span { background-image: url(icon_email.gif); }
+a.icon.fb span { background-image: url(facebook_icon.png); }
+a.icon.linkedin span { background-image: url(linkedin.png); }
+
+/***** Data-specific formatting *****/
+table.users td {
+    padding: .25em;
+}
