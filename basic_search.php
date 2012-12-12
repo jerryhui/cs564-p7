@@ -1,6 +1,9 @@
 <html>
 
- <head><title>CS 564 PHP Project Search Result Page</title></head>
+ <head>
+  <title>Basic Search Results: CS 564-Instant Music Festival</title>
+  <link rel="stylesheet" type="text/css" href="instantFest.css" />
+ </head>
 
  <body>
    <tr>
