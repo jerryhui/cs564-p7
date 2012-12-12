@@ -14,7 +14,7 @@ ul.menu li {
     list-style: none;
     display:block;
     float: left;
-    margin: .25em 1em;
+    padding: .25em .5em;
     font-weight: bold;
     font-size: 18px;
     
