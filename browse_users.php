@@ -78,7 +78,7 @@
 
 <?php
   // Get category name and item counts
-  $query = "SELECT * FROM instant_schema.users as U, instant_schema.bands as B, instant_schema.locations as L where U.uid=M.uid and U.lid=L.lid order by U.lastname";
+  $query = "SELECT * FROM instant_schema.users as U, instant_schema.bands as B, instant_schema.locations as L where U.uid=B.uid and U.lid=L.lid order by U.lastname";
   // Execute the query and check for errors
   $result = pg_query($query);
   if (!$result) {
