@@ -59,14 +59,14 @@
    echo "<div class='searchresult'>";
    
    echo "<span class='name ";
-   if ($result['isBand']=="t") {
-    echo "band'>" . $result['lastname'];
+   if ($row['isBand']=="t") {
+    echo "band'>" . $row['lastname'];
    } else {
-    echo "musician'>" . $result['firstname'] . " " . $result['lastname'];
+    echo "musician'>" . $row['firstname'] . " " . $row['lastname'];
    }
    echo "</span>";
    
-   echo "<span class='location'>" . $result['city'] . ", " . $result['state'];
+   echo "<span class='location'>" . $row['city'] . ", " . $row['state'];
    
    echo "</div>"; // end searchresult div
   }
