@@ -84,6 +84,7 @@
     if ($row['soundslike']!="") echo "<span class='influence'>Sounds like: <p>" . $row['soundslike'] . "</p></span>";
     if ($row['memberlist']!="") echo "<span class='memberlist'>Members: <p>" . $row['memberlist'] . "</p></span>";
    }
+   if ($row['about']!="") echo "<p class='about'>" . $row['about'] . "</p>";
    
    echo "</div>"; // end searchresult div
   }
