@@ -26,8 +26,8 @@
   // Connect to the Database
   pg_connect('dbname=cs564_f12 host=postgres.cs.wisc.edu') 
 	or die ("Couldn't Connect ".pg_last_error()); 
-  // Get category name and item counts
-  $query = "SELECT * FROM instant_schema.users as U, instant_schema.musicians as M, instant_schema.locations as L where U.uid=M.uid and U.lid=L.lid order by U.lastname";
+  // Get musician records
+  $query = "SELECT * FROM instant_schema.musicians as M, instant_schema.users as U left join instant_schema.locations as L on U.lid=L.lid where U.uid=M.uid order by U.lastname";
   // Execute the query and check for errors
   $result = pg_query($query);
   if (!$result) {
@@ -77,8 +77,8 @@
    </tr>
 
 <?php
-  // Get category name and item counts
-  $query = "SELECT * FROM instant_schema.users as U, instant_schema.bands as B, instant_schema.locations as L where U.uid=B.uid and U.lid=L.lid order by U.lastname";
+  // Get band records
+  $query = "SELECT * FROM instant_schema.bands as B, instant_schema.users as U left join instant_schema.locations as L on U.lid=L.lid where U.uid=B.uid order by U.lastname";
   // Execute the query and check for errors
   $result = pg_query($query);
   if (!$result) {
