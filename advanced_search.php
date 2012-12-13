@@ -40,7 +40,7 @@
   $query = $query . " ORDER BY isBand,lastname";
   
   // debug only!! print out SQL
-  echo "<p>SQL to execute: " . $query . "</p>";
+  // echo "<p>SQL to execute: " . $query . "</p>";
   
   
   // Connect to the Database
