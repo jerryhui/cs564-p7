@@ -75,25 +75,19 @@
   $uid = pg_fetch_array($uidrec);
   	
   if($usertype == "musician"){
-	$result = pg_query("insert into 
-instant_schema.musicians(uid) VALUES ({$uid['uid']})");
- 	if (!$result) {
-    		$errormessage = pg_last_error();
-    		echo "Error with insertion: " . $errormessage;
-    		exit();
-  	}
+	$result = pg_query("insert into instant_schema.musicians(uid) VALUES ({$uid['uid']})");
   }
   else{
-	$result = pg_query("insert into instant_schema.bands(uid) VALUES 
-({$uid['uid']})");
- 	if (!$result) {
-    		$errormessage = pg_last_error();
-    		echo "Error with insertion: " . $errormessage;
-    		exit();
-  	} 
+	$result = pg_query("insert into instant_schema.bands(uid) VALUES ({$uid['uid']})");
   }
+ if (!$result) {
+    	$errormessage = pg_last_error();
+    	echo "Error with insertion: $errormessage";
+    	exit();
+  } 
 	
   echo "  <h3>Insert Successful</h3>";
+  echo "$firstname $lastname was added (uid=$uid['uid'])";
   
   pg_close();
 ?>
