@@ -54,40 +54,46 @@
     echo "Error with query: " . $errormessage;
     exit();
   }
+  
+  if (pg_num_rows($result)==0) {
+   echo "<p>No users found.</p>";
+  } else {
   ?>
   <h2>Advanced Search: Result</h2>  
   
   <?php
-  while($row = pg_fetch_array($result,NULL,PGSQL_ASSOC))  {
-   echo "<div class='searchresult'>";
-   
-   echo "<span class='name ";
-   if ($row['isband']=="t") {
-    echo "band'>" . $row['lastname'];
-   } else {
-    echo "musician'>" . $row['firstname'] . " " . $row['lastname'];
+   while($row = pg_fetch_array($result,NULL,PGSQL_ASSOC))  {
+    echo "<div class='searchresult'>";
+    
+    echo "<span class='name ";
+    if ($row['isband']=="t") {
+     echo "band'>" . $row['lastname'];
+    } else {
+     echo "musician'>" . $row['firstname'] . " " . $row['lastname'];
+    }
+    echo "</span>";
+    
+    echo "<span class='location'>" . $row['city'] . ", " . $row['state'] . "</span>";
+    
+    // contact info
+    echo "<div class='contacts'>";
+    if ($row['email']!="") echo "<span class='email'><a href='mailto:" . $row['email'] . "' class='icon email'><span> <span></a></span>";
+    if ($row['isband']=="f") {
+     // display musician-specific info
+     if ($row['fbid']!="") echo "<span class='facebooklink'><a href='http://facebook.com/" . $row['fbid'] . "' class='icon fb'><span> </span></a></span>";
+     if ($row['website']!="") echo "<span class='webpage'><a href='http://" . $row['website'] . "' target='_blank'>". $row['website'] ."</a></span>";
+     echo "</div>"; // end contacts
+    } else {
+     echo "</div>"; // end contacts
+     if ($row['soundslike']!="") echo "<span class='influence'>Sounds like: <p>" . $row['soundslike'] . "</p></span>";
+     if ($row['memberlist']!="") echo "<span class='memberlist'>Members: <p>" . $row['memberlist'] . "</p></span>";
+    }
+    if ($row['about']!="") echo "<p class='about'>" . $row['about'] . "</p>";
+    
+    echo "</div>"; // end searchresult div
    }
-   echo "</span>";
-   
-   echo "<span class='location'>" . $row['city'] . ", " . $row['state'] . "</span>";
-   
-   // contact info
-   echo "<div class='contacts'>";
-   if ($row['email']!="") echo "<span class='email'><a href='mailto:" . $row['email'] . "' class='icon email'><span> <span></a></span>";
-   if ($row['isband']=="f") {
-    // display musician-specific info
-    if ($row['fbid']!="") echo "<span class='facebooklink'><a href='http://facebook.com/" . $row['fbid'] . "' class='icon fb'><span> </span></a></span>";
-    if ($row['website']!="") echo "<span class='webpage'><a href='http://" . $row['website'] . "' target='_blank'>". $row['website'] ."</a></span>";
-    echo "</div>"; // end contacts
-   } else {
-    echo "</div>"; // end contacts
-    if ($row['soundslike']!="") echo "<span class='influence'>Sounds like: <p>" . $row['soundslike'] . "</p></span>";
-    if ($row['memberlist']!="") echo "<span class='memberlist'>Members: <p>" . $row['memberlist'] . "</p></span>";
-   }
-   if ($row['about']!="") echo "<p class='about'>" . $row['about'] . "</p>";
-   
-   echo "</div>"; // end searchresult div
-  }
+  
+  } // end else
   ?>
   
   <h3>Search again</h3>
