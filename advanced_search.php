@@ -112,7 +112,7 @@
    ?>
    
   <h2>Advanced Search</h2>
-  
+  <p>Please enter one or more search criteria. All text is case-insensitive.</p>
   <?php
  }
   ?>
@@ -120,13 +120,13 @@
    
    <ul>
     <li>
-     <span>Name (first, last, or band name)</span>
-     <input type="text" name="namepart" />
+     <span>Name (first, last, or band name; partial name accepted)</span>
+     <input type="text" name="namepart" title="Enter part of the name of the musicians or bands to search for." />
     </li>
     
     <li>
      <span>City</span>
-     <input type="text" name="city" />
+     <input type="text" name="city" title="Enter the full name of the city." />
     </li>
     
     <li>
