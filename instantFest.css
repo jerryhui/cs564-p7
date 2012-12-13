@@ -51,6 +51,7 @@ table.users td {
 
 /* search result cards */
 .searchresult {
+    position: relative;
     padding: .5em;
     background: #CCCCCC;
     width: 60%;
@@ -65,3 +66,4 @@ table.users td {
 }
 .searchresult .name.band { background-image: url(icon-band.png); }
 .searchresult .name.musician { background-image: url(icon-male.png); }
+.searchresult .contacts { position: absolute; right:.25em; top: .25em; }

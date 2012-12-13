@@ -71,15 +71,18 @@
    
    echo "<span class='location'>" . $row['city'] . ", " . $row['state'] . "</span>";
    
+   // contact info
+   echo "<div class='contacts'>";
    if ($row['email']!="") echo "<span class='email'><a href='mailto:" . $row['email'] . "' class='icon email'><span> <span></a></span>";
-
    if ($row['isband']=="f") {
     // display musician-specific info
-    if ($row['fbid']!="") echo "<span class='facebooklink'><a href='http://facebook.com/" . $row['fbid'] . "' class='icon facebook'><span> </span></a></span>";
+    if ($row['fbid']!="") echo "<span class='facebooklink'><a href='http://facebook.com/" . $row['fbid'] . "' class='icon fb'><span> </span></a></span>";
     if ($row['website']!="") echo "<span class='webpage'><a href='http://" . $row['website'] . "' target='_blank'>". $row['website'] ."</a></span>";
+    echo "</div>"; // end contacts
    } else {
-    if ($row['soundslike']!="") echo "<span class='influence'><p>" . $row['soundslike'] . "</p></span>";
-    if ($row['memberlist']!="") echo "<span class='memberlist'><p>" . $row['memberlist'] . "</p></span>";
+    echo "</div>"; // end contacts
+    if ($row['soundslike']!="") echo "<span class='influence'>Sounds like: <p>" . $row['soundslike'] . "</p></span>";
+    if ($row['memberlist']!="") echo "<span class='memberlist'>Members: <p>" . $row['memberlist'] . "</p></span>";
    }
    
    echo "</div>"; // end searchresult div
