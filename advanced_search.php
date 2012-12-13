@@ -55,13 +55,12 @@
     exit();
   }
   
+  echo "<h2>Advanced Search: Result</h2>";
+  
   if (pg_num_rows($result)==0) {
    echo "<p>No users found.</p>";
   } else {
-  ?>
-  <h2>Advanced Search: Result</h2>  
-  
-  <?php
+
    while($row = pg_fetch_array($result,NULL,PGSQL_ASSOC))  {
     echo "<div class='searchresult'>";
     
