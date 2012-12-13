@@ -20,20 +20,27 @@
   left join instant_schema.bands B on U.uid=B.uid
   WHERE U.lid=L.lid";
   $whereclause = "";
+  $searchCriteria = "";
   
   if ( isset($_POST['namepart']) && trim($_POST['namepart'])!="" ) {
-   $whereclause = $whereclause . "(firstname ILIKE '%" . $_POST['namepart'] . "%' 
-   OR lastname LIKE '%" . $_POST['namepart'] ."%' ";
+   $whereclause = $whereclause . "(firstname ILIKE '%" . str_replace("'","''",$_POST['namepart']) . "%' 
+   OR lastname ILIKE '%" . str_replace("'","''",$_POST['namepart']) ."%') ";
+   
+   $searchCriteria = $searchCriteria . "whose names contain " . $_POST['namepart']. " ";
   }
   
   if ( isset($_POST['city']) && trim($_POST['city'])!="" ) {
    if ($whereclause!="") $whereclause = $whereclause . "AND ";
-   $whereclause = $whereclause . "L.city ILIKE '" . $_POST['city'] . "' ";
+   $whereclause = $whereclause . "L.city ILIKE '" . str_replace("'","''",$_POST['city']) . "' ";
+
+   $searchCriteria = $searchCriteria . "in city " . $_POST['city']. " ";
   }
   
   if ( isset($_POST['state']) && $_POST['state']!=' ') {
    if ($whereclause!="") $whereclause = $whereclause . "AND ";
    $whereclause = $whereclause . "L.state='" . $_POST['state'] . "' ";
+
+   $searchCriteria = $searchCriteria . "in the state of " . $state_values[$_POST['state']]. " ";
   }
   
   if ($whereclause!="") $query = $query . " AND " . $whereclause;
@@ -56,6 +63,8 @@
   }
   
   echo "<h2>Advanced Search: Result</h2>";
+  if ($searchCriteria!="")
+   echo "<p>Listing musicians/bands " . $searchCriteria . ".</p>";
   
   if (pg_num_rows($result)==0) {
    echo "<p>No users found.</p>";
@@ -103,7 +112,7 @@
    ?>
    
   <h2>Advanced Search</h2>
-  
+  <p>Please enter one or more search criteria. All text is case-insensitive.</p>
   <?php
  }
   ?>
@@ -111,13 +120,13 @@
    
    <ul>
     <li>
-     <span>Name (first, last, or band name)</span>
-     <input type="text" name="namepart" />
+     <span>Name (first, last, or band name; partial name accepted)</span>
+     <input type="text" name="namepart" title="Enter part of the name of the musicians or bands to search for." />
     </li>
     
     <li>
      <span>City</span>
-     <input type="text" name="city" />
+     <input type="text" name="city" title="Enter the full name of the city." />
     </li>
     
     <li>
