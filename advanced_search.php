@@ -59,7 +59,7 @@
    echo "<div class='searchresult'>";
    
    echo "<span class='name ";
-   if ($row['isBand']=="t") {
+   if ($row['isband']=="t") {
     echo "band'>" . $row['lastname'];
    } else {
     echo "musician'>" . $row['firstname'] . " " . $row['lastname'];

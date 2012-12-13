@@ -15,6 +15,7 @@
  */
 
 $state_values=array(
+                ' '=>"- none -",
                 'AL'=>"Alabama",
                 'AK'=>"Alaska",
                 'AZ'=>"Arizona",
