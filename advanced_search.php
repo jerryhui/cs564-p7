@@ -26,7 +26,7 @@
    $whereclause = $whereclause . "(firstname ILIKE '%" . $_POST['namepart'] . "%' 
    OR lastname LIKE '%" . $_POST['namepart'] ."%' ";
    
-   $searchCriteria = $searchCriteria . "name contains " . $_POST['namepart']. " ";
+   $searchCriteria = $searchCriteria . "whose names contain " . $_POST['namepart']. " ";
   }
   
   if ( isset($_POST['city']) && trim($_POST['city'])!="" ) {
@@ -64,7 +64,7 @@
   
   echo "<h2>Advanced Search: Result</h2>";
   if ($searchCriteria!="")
-   echo "<p>Listing musicians/bands where " . $searchCriteria . "</p>";
+   echo "<p>Listing musicians/bands " . $searchCriteria . "</p>";
   
   if (pg_num_rows($result)==0) {
    echo "<p>No users found.</p>";
