@@ -67,6 +67,7 @@ We will set those attributes to the entered values.
         <td height="24" align="center" width="48%">
         </td>
         <td align="center" width="52%"><input type="submit" name="Submit" value="Submit"><input type="reset" name="Submit2" value="Reset">
+<input type="hidden" name="usertype" value="musician" />
         </td>
       </tr>
     </form>

@@ -65,16 +65,18 @@
   }
 
   // get uid of newly inserted user
-  $uidrec = pg_query("select uid from users where lastname = '$lastname' AND firstname = '$firstname';");
+  $uidrec = pg_query("select uid from instant_schema.users where lastname 
+= '$lastname' AND firstname = '$firstname';");
   if (!$uidrec) {
   	$errormessage = pg_last_error();
   	echo "Error processing user type: $errormessage";
   	exit();
   }
-  $uid = (pg_fetch_array($uidrec))['uid'];
+  $uid = pg_fetch_array($uidrec);
   	
   if($usertype == "musician"){
-	$result = pg_query("insert into instant_schema.musicians(uid) VALUES ('$uid');");
+	$result = pg_query("insert into 
+instant_schema.musicians(uid) VALUES ({$uid['uid']})");
  	if (!$result) {
     		$errormessage = pg_last_error();
     		echo "Error with insertion: " . $errormessage;
@@ -82,7 +84,8 @@
   	}
   }
   else{
-	$result = pg_query("insert into instant_schema.bands(uid) VALUES ('$uid');";
+	$result = pg_query("insert into instant_schema.bands(uid) VALUES 
+({$uid['uid']})");
  	if (!$result) {
     		$errormessage = pg_last_error();
     		echo "Error with insertion: " . $errormessage;
