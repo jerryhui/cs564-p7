@@ -19,8 +19,9 @@ ul.menu li {
     font-size: 18px;
     
     background: #479;
+    color: #CCC;
 }
-ul.menu li:hover { background: #05b; }
+ul.menu li:hover { background: #05b; color: #FCC; }
 ul.menu:after { content: " "; display:block; clear: both; }
 
 ul.menu a { text-decoration:none; color: #fff;}
