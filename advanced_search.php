@@ -24,7 +24,7 @@
   
   if ( isset($_POST['namepart']) && trim($_POST['namepart'])!="" ) {
    $whereclause = $whereclause . "(firstname ILIKE '%" . $_POST['namepart'] . "%' 
-   OR lastname LIKE '%" . $_POST['namepart'] ."%' ";
+   OR lastname LIKE '%" . $_POST['namepart'] ."%') ";
    
    $searchCriteria = $searchCriteria . "whose names contain " . $_POST['namepart']. " ";
   }
