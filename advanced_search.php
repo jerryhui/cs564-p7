@@ -14,15 +14,17 @@
   
  if ( isset($_POST['submit']) ) {
   // build query
-  $query = "SELECT *,(M.uid IS NULL) AS isBand
+  $query = "SELECT DISTINCT *,(M.uid IS NULL) AS isband
   FROM instant_schema.locations L, instant_schema.users U
   left join instant_schema.musicians M on U.uid=M.uid
   left join instant_schema.bands B on U.uid=B.uid
   WHERE U.lid=L.lid";
   $whereclause = "";
   
-  if ( isset($_POST['namepart']) )
-   $whereclause = $whereclause . "firstname ILIKE '%" . $_POST['namepart'] . "%' ";
+  if ( isset($_POST['namepart']) && trim($_POST['namepart'])!="" ) {
+   $whereclause = $whereclause . "(firstname ILIKE '%" . $_POST['namepart'] . "%' 
+   OR lastname LIKE '%" . $_POST['namepart'] ."%' ";
+  }
   
   if ( isset($_POST['city']) ) {
    if ($whereclause!="") $whereclause = $whereclause . "AND ";
@@ -34,7 +36,7 @@
    $whereclause = $whereclause . "L.state='" . $_POST['state'] . "' ";
   }
   
-  if ($whereclause!="") $query = $query . " AND " . $whereclause;
+  if ($whereclause!="") $query = $query . " AND " . $whereclause . " ORDER BY isBand,lastname";
   
   // debug only!! print out SQL
   echo "<p>SQL to execute: " . $query . "</p>";
