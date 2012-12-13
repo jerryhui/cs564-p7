@@ -20,20 +20,27 @@
   left join instant_schema.bands B on U.uid=B.uid
   WHERE U.lid=L.lid";
   $whereclause = "";
+  $searchCriteria = "";
   
   if ( isset($_POST['namepart']) && trim($_POST['namepart'])!="" ) {
    $whereclause = $whereclause . "(firstname ILIKE '%" . $_POST['namepart'] . "%' 
    OR lastname LIKE '%" . $_POST['namepart'] ."%' ";
+   
+   $searchCriteria = $searchCriteria . "name contains " . $_POST['namepart']. " ";
   }
   
   if ( isset($_POST['city']) && trim($_POST['city'])!="" ) {
    if ($whereclause!="") $whereclause = $whereclause . "AND ";
    $whereclause = $whereclause . "L.city ILIKE '" . $_POST['city'] . "' ";
+
+   $searchCriteria = $searchCriteria . "in city " . $_POST['city']. " ";
   }
   
   if ( isset($_POST['state']) && $_POST['state']!=' ') {
    if ($whereclause!="") $whereclause = $whereclause . "AND ";
    $whereclause = $whereclause . "L.state='" . $_POST['state'] . "' ";
+
+   $searchCriteria = $searchCriteria . "in the state of " . $state_values[$_POST['state']]. " ";
   }
   
   if ($whereclause!="") $query = $query . " AND " . $whereclause;
@@ -56,6 +63,8 @@
   }
   
   echo "<h2>Advanced Search: Result</h2>";
+  if ($searchCriteria!="")
+   echo "<p>Listing musicians/bands where " . $searchCriteria . "</p>";
   
   if (pg_num_rows($result)==0) {
    echo "<p>No users found.</p>";
