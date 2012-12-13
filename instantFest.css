@@ -21,10 +21,11 @@ ul.menu li {
     background: #479;
     color: #CCC;
 }
-ul.menu li:hover { background: #05b; color: #FCC; }
+ul.menu li:hover { background: #05b }
 ul.menu:after { content: " "; display:block; clear: both; }
 
-ul.menu a { text-decoration:none; color: #fff;}
+ul.menu a { text-decoration:none; color: #fff; font-weight:normal; }
+ul.menu a:hover { color:#FCC }
 
 /***** Data-specific formatting *****/
 a.icon span {
