@@ -67,4 +67,4 @@ table.users td {
 .searchresult .name.band { background-image: url(icon-band.png); }
 .searchresult .name.musician { background-image: url(icon-male.png); }
 .searchresult .contacts { position: absolute; right:.25em; top: .25em; }
-.searchresult .contacts .icon { float: left; }
+.searchresult .contacts .icon { float: right; }
