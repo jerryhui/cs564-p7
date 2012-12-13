@@ -1,6 +1,9 @@
 <html>
 
- <head><title>CS 564 PHP Project: Update Page</title></head>
+ <head>
+<title>Update users: CS 564-Instant Music Festival</title>
+<link rel="stylesheet" type="text/css" href="instantFest.css" />
+</head>
  
 
  <body>
