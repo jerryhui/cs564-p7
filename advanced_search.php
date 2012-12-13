@@ -37,7 +37,7 @@
   }
   
   if ($whereclause!="") $query = $query . " AND " . $whereclause;
-  $whereclause = $whereclause . " ORDER BY isBand,lastname";
+  $query = $query . " ORDER BY isBand,lastname";
   
   // debug only!! print out SQL
   echo "<p>SQL to execute: " . $query . "</p>";
