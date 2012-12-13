@@ -31,7 +31,7 @@
    $whereclause = $whereclause . "L.city ILIKE '" . $_POST['city'] . "' ";
   }
   
-  if ( isset($_POST['state']) ) {
+  if ( isset($_POST['state']) && $_POST['state']!='--') {
    if ($whereclause!="") $whereclause = $whereclause . "AND ";
    $whereclause = $whereclause . "L.state='" . $_POST['state'] . "' ";
   }
@@ -101,7 +101,7 @@
     
     <li>
      <span>State</span>
-     <?php echo listUSStates($state_values,"state","WI"); ?>
+     <?php echo listUSStates($state_values,"state","--"); ?>
     </li>
    </ul>
    
