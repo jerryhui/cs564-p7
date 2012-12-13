@@ -36,7 +36,8 @@
    $whereclause = $whereclause . "L.state='" . $_POST['state'] . "' ";
   }
   
-  if ($whereclause!="") $query = $query . " AND " . $whereclause . " ORDER BY isBand,lastname";
+  if ($whereclause!="") $query = $query . " AND " . $whereclause;
+  $whereclause = $whereclause . " ORDER BY isBand,lastname";
   
   // debug only!! print out SQL
   echo "<p>SQL to execute: " . $query . "</p>";
