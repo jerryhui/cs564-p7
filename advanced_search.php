@@ -64,7 +64,7 @@
   
   echo "<h2>Advanced Search: Result</h2>";
   if ($searchCriteria!="")
-   echo "<p>Listing musicians/bands " . $searchCriteria . "</p>";
+   echo "<p>Listing musicians/bands " . $searchCriteria . ".</p>";
   
   if (pg_num_rows($result)==0) {
    echo "<p>No users found.</p>";
