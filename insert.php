@@ -64,7 +64,14 @@
     exit();
   }
 
-  $uid = pg_query("select uid from users where lastname = '$lastname' AND firstname = '$firstname';");
+  // get uid of newly inserted user
+  $uidrec = pg_query("select uid from users where lastname = '$lastname' AND firstname = '$firstname';");
+  if (!$uidrec) {
+  	$errormessage = pg_last_error();
+  	echo "Error processing user type: $errormessage";
+  	exit();
+  }
+  $uid = (pg_fetch_array($uidrec))['uid'];
   	
   if($usertype == "musician"){
 	$result = pg_query("insert into instant_schema.musicians(uid) VALUES ('$uid');");
