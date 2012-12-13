@@ -26,12 +26,12 @@
    OR lastname LIKE '%" . $_POST['namepart'] ."%' ";
   }
   
-  if ( isset($_POST['city']) ) {
+  if ( isset($_POST['city']) && trim($_POST['city'])!="" ) {
    if ($whereclause!="") $whereclause = $whereclause . "AND ";
    $whereclause = $whereclause . "L.city ILIKE '" . $_POST['city'] . "' ";
   }
   
-  if ( isset($_POST['state']) && $_POST['state']!='--') {
+  if ( isset($_POST['state']) && $_POST['state']!='') {
    if ($whereclause!="") $whereclause = $whereclause . "AND ";
    $whereclause = $whereclause . "L.state='" . $_POST['state'] . "' ";
   }
