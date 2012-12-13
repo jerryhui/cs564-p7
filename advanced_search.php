@@ -23,15 +23,15 @@
   $searchCriteria = "";
   
   if ( isset($_POST['namepart']) && trim($_POST['namepart'])!="" ) {
-   $whereclause = $whereclause . "(firstname ILIKE '%" . $_POST['namepart'] . "%' 
-   OR lastname ILIKE '%" . $_POST['namepart'] ."%') ";
+   $whereclause = $whereclause . "(firstname ILIKE '%" . str_replace("'","''",$_POST['namepart']) . "%' 
+   OR lastname ILIKE '%" . str_replace("'","''",$_POST['namepart']) ."%') ";
    
    $searchCriteria = $searchCriteria . "whose names contain " . $_POST['namepart']. " ";
   }
   
   if ( isset($_POST['city']) && trim($_POST['city'])!="" ) {
    if ($whereclause!="") $whereclause = $whereclause . "AND ";
-   $whereclause = $whereclause . "L.city ILIKE '" . $_POST['city'] . "' ";
+   $whereclause = $whereclause . "L.city ILIKE '" . str_replace("'","''",$_POST['city']) . "' ";
 
    $searchCriteria = $searchCriteria . "in city " . $_POST['city']. " ";
   }
