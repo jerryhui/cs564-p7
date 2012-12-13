@@ -18,11 +18,12 @@ ul.menu li {
     font-weight: bold;
     font-size: 18px;
     
-    background: #CFD;
+    background: #479;
 }
-ul.menu li:hover { background: #ADB; }
+ul.menu li:hover { background: #05b; }
 ul.menu:after { content: " "; display:block; clear: both; }
 
+ul.menu a { text-decoration:none; color: #fff;}
 
 /***** Data-specific formatting *****/
 a.icon span {
