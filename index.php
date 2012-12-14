@@ -11,21 +11,19 @@
  <?php include 'menu.php' ?>
   <h3>Search for a User</h3>
   Enter a last name of a musician, or a band name (exact name only):
-  <table width="30%" border="0" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
+  <div class="searchform">
     <form name="form1" method="post" action="basic_search.php">
-      <tr align="center">
-        <td height="30" class="deepred" width="48%"><font face="Times New Roman, Times, serif">Name</font></td>
-        <td height="30" class="deepred" width="52%"><input type="text" name="lastname">
-        </td>
-      </tr>
-      <tr>
-        <td height="24" align="center" width="48%">
-        </td>
-        <td align="center" width="52%"><input type="submit" name="Submit" value="Submit"><input type="reset" name="Submit2" value="Reset">
-        </td>
-      </tr>
+     <ul>
+      <li>
+        <span>Name</span>
+        <input type="text" name="lastname">
+      </li>
+      <li>
+        <input type="submit" name="Submit" value="Submit" /><input type="reset" name="Submit2" value="Reset" />
+      </li>
+     </ul>
     </form>
-  </table>
+  </div>
   
   <h3><a href="advanced_search.php">Advanced Search</a></h3>
   <p>Find a user by type (individual musician/band), name, location, or other criteria.</p>
