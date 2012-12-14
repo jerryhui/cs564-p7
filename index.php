@@ -8,6 +8,7 @@
  <body>
 
  <h2>CS 564 PHP Project-7: Instant Music Festival</h2>
+ <?php include 'menu.php' ?>
   <h3>Search for a User</h3>
   Enter a last name of a musician, or a band name (exact name only):
   <table width="30%" border="0" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
