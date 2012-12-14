@@ -15,10 +15,10 @@
  if ( isset($_POST['submit']) ) {
   // build query
   $query = "SELECT DISTINCT *,(M.uid IS NULL) AS isband
-  FROM instant_schema.locations L, instant_schema.users U
+  FROM instant_schema.users U
+  left join instant_schema.locations L on U.lid=L.lid
   left join instant_schema.musicians M on U.uid=M.uid
-  left join instant_schema.bands B on U.uid=B.uid
-  WHERE U.lid=L.lid";
+  left join instant_schema.bands B on U.uid=B.uid";
   $whereclause = "";
   $searchCriteria = "";
   
@@ -43,7 +43,7 @@
    $searchCriteria = $searchCriteria . "in the state of " . $state_values[$_POST['state']]. " ";
   }
   
-  if ($whereclause!="") $query = $query . " AND " . $whereclause;
+  if ($whereclause!="") $query = "$query WHERE $whereclause";
   $query = $query . " ORDER BY isBand,lastname";
   
   // debug only!! print out SQL
@@ -81,7 +81,8 @@
     }
     echo "</span>";
     
-    echo "<span class='location'>" . $row['city'] . ", " . $row['state'] . "</span>";
+    if ($row['city']!="") echo "<span class='location'>" . $row['city'] . ", " . $row['state'] . 
+"</span>";
     
     // contact info
     echo "<div class='contacts'>";
