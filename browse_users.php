@@ -99,7 +99,7 @@ email'><span> </span></a>";
     if ($row['email']!="") echo "\n          <a href=\"mailto:".$row['email']."\" class='icon email'><span> </span></a>";
     echo "\n         </td>";
     echo "\n         <td>";
-    echo "\n          ".$row['city'].", ".$row['state'];
+    if ($row['city']!="") echo "\n          ".$row['city'].", ".$row['state'];
     echo "\n         </td>";
     echo "\n         <td>";
     if ($row['fbid']!="") echo "\n          <a href=\"http://facebook.com/".$row['fbid']."\" class='icon fb'><span> </span></a>";
