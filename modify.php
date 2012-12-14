@@ -6,38 +6,46 @@
 	
  <?php
    // First check the itemid to see if it has been set
-  if (!isset($_POST['title']) ) {
-    echo "  <h3><i>Error, title not set to an acceptable value</i></h3>\n".
+  if (!isset($_POST['lastname']) ) {
+    echo "  <h3><i>Error, lastname not set to an acceptable value</i></h3>\n".
         " <a href=\"https://cs564.cs.wisc.edu/halit/index.html\">Back to main page</a>\n".
 	" </body>\n</html>\n";
     exit();
   }
-  $title = $_POST['title'];
-  $author = $_POST['author'];
-  $num = $_POST['num'];
+  $lastname = $_POST['lastname'];
+  $firstname = $_POST['firstname'];
+  $email = $_POST['email'];
+  $about = $_POST['about'];
+
   // Connect to the Database
   pg_connect('dbname=cs564_f12 host=postgres.cs.wisc.edu') 
 	or die ("Couldn't Connect ".pg_last_error()); 
+
   // Get category name and item counts
-  if( strlen($author) > 0 || strlen($num) > 0 )	{
-	$query = "update stage7_book_schema.book set";
-	if( strlen($author) )	{
-	$query .= " author='".$author."'";
+  if( strlen($firstname) > 0 || strlen($email) > 0 || strlen($about) > 0 )	{
+	$query = "UPDATE instant_schema.users set";
+	if( strlen($firstname) )	{
+	$query .= " firstname='".$firstname."'";
 	}
-	if( strlen($author) && strlen($num) )	{
+	if( strlen($email) && strlen($about) )	{
 	$query .= ",";
 	}
-	if( strlen($num) )	{
-	$query .= " num=".$num;
+	if( strlen($email) )	{
+	$query .= " email='".$email."'";
 	}
-	$query .= " where title='".$title."'";
+	if( strlen($about) )	{
+	$query .= ", about='".$about."'";
+	}
+	$query .= " where lastname='".$lastname."'";
   }else	{
     echo "  <h3><i>no field to be updated</i></h3>\n".
-        " <a href=\"https://cs564.cs.wisc.edu/halit/index.html\">Back to main page</a>\n".
+        " <a href=\"index.html\">Back to main page</a>\n".
 	" </body>\n</html>\n";
     exit();
   }
   // Execute the query and check for errors
+  echo $query;
+
   $result = pg_query($query);
   if (!$result) {
     $errormessage = pg_last_error();
@@ -49,7 +57,7 @@
   pg_close();
 ?>
 
-        <?php echo "<a href=\"https://cs564.cs.wisc.edu/halit/index.html\">Back to main page</a>\n"?>
+        <?php echo "<a href=\"index.html\">Back to main page</a>\n"?>
  </body>
 
 </html>
