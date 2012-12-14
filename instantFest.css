@@ -54,6 +54,29 @@ table.usertable td {
     font-size: 90%;
 }
 
+/* search forms */
+div.searchform {
+    display: block;
+    position: relative;
+    background: #EEE;
+    border: solid 1px #888;
+    
+    width: 75%;
+}
+.searchform ul {
+    list-style: none;
+    margin: 0;
+    width: 100%;
+}
+.searchform ul li { clear:both; margin: .25em .5em; width: 100%;}
+.searchform ul li span { /* field labels */
+    display: block;
+    width: 45%;
+    float: left;
+    clear: left;
+}
+.searchform ul li input[type='text'] { width: 35%; height: 2em; }
+
 /* search result cards */
 .searchresult {
     position: relative;

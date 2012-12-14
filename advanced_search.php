@@ -116,7 +116,8 @@
   <?php
  }
   ?>
-  <form method="post" action="advanced_search.php" class="searchform">
+  <div class="searchform">
+  <form method="post" action="advanced_search.php">
    
    <ul>
     <li>
@@ -133,11 +134,15 @@
      <span>State</span>
      <?php echo listUSStates($state_values,"state","--"); ?>
     </li>
+    
+    <li>
+     <input type="submit" text="Search" name="submit" value="submit" />
+     <input type="reset" text="Reset" />
+    </li>
    </ul>
    
-   <input type="submit" text="Search" name="submit" value="submit" />
-   <input type="reset" text="Reset" />
   </form>
+  </div>
 
  </body>
 
