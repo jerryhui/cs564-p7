@@ -1,6 +1,9 @@
 body {
     font-family: trebuchet ms, futura, arial, sans-serif;
     font-size: 15px;
+    
+    width: 95%;
+    margin: 0 auto;
 }
 
 h1 { font-size: 22px; }
