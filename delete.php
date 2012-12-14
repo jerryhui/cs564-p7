@@ -1,10 +1,14 @@
 <html>
 
- <head><title>CS 564 PHP Project Delete Result Page</title></head>
+ <head><title>CS 564 PHP Project Delete Result Page</title>
+<link rel="stylesheet" type="text/css" href="instantFest.css" />
+</head>
 
  <body>      
 	
  <?php
+  include 'menu.php';
+
    // First make sure that all the requested user information has been set
   if ((!isset($_POST['lastname']) && strlen((trim($_POST['lastname']))))) {
     echo "  <h3><i>Error, Last name not set to an acceptable value</i></h3>\n".
@@ -42,7 +46,7 @@
   pg_close();
 ?>
 
-        <?php echo "<a href=\"index.html\">Back to main page</a>\n"?>
+        <?php echo "<a href=\"index.php\">Back to main page</a>\n"?>
  </body>
 
 </html>
