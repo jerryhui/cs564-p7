@@ -18,17 +18,19 @@ We will set those attributes to the entered values.
   <table width="40%" border="0" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
     <form name="form1" method="post" action="modify.php">
       <tr align="center">
-        <td height="30" class="deepred" width="48%"><font face="Times New Roman, Times, serif">Title</font></td>
-        <td height="30" class="deepred" width="52%"><input type="text" name="title"></td>
+        <td height="30" class="deepred" width="48%"><font face="Times New Roman, Times, serif">Last Name</font></td>
+        <td height="30" class="deepred" width="52%"><input type="text" name="lastname"></td>
 	</tr>
 	<tr align="center">
-	<td height="30" class="deepred" width="48%"><font face="Times New Roman, Times, serif">Author</font></td>
-        <td height="30" class="deepred" width="52%"><input type="text" name="author"></td>
+	<td height="30" class="deepred" width="48%"><font face="Times New Roman, Times, serif">First Name</font></td>
+        <td height="30" class="deepred" width="52%"><input type="text" name="firstname"></td>
 	</tr>
 	<tr align="center">
-	<td height="30" class="deepred" width="48%"><font face="Times New Roman, Times, serif">Number of Copies</font></td>
-        <td height="30" class="deepred" width="52%"><input type="text" name="num">
-        </td>
+	<td height="30" class="deepred" width="48%"><font face="Times New Roman, Times, serif">Email Address</font></td>
+        <td height="30" class="deepred" width="52%"><input type="text" name="email">
+        <tr align="center">
+	<td height="30" class="deepred" width="48%"><font face="Times New roman, Times, serif">About</font></td>
+	<td height="30" class="deepred" width="52%"><textarea rows="3" cols="30" name="about"></textarea></td>
       </tr>
       <tr>
         <td height="24" align="center" width="48%">
