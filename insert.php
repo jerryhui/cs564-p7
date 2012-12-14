@@ -33,10 +33,10 @@
   }
   
 
-  $firstname = $_POST['firstname'];
-  $lastname = $_POST['lastname'];
-  $email = $_POST['email'];
-  $about = $_POST['about'];
+  $firstname = str_replace("'","''",$_POST['firstname']);
+  $lastname = str_replace("'","''",$_POST['lastname']);
+  $email = str_replace("'","''",$_POST['email']);
+  $about = str_replace("'","''",$_POST['about']);
   $usertype = $_POST['usertype'];
 
   // Connect to the Database
@@ -56,6 +56,7 @@
   }else {
         $query .= ");";
   }
+
   // Execute the query (users insertion) and check for errors
   $result = pg_query($query);
   if (!$result) {
@@ -87,7 +88,7 @@
   } 
 	
   echo "  <h3>Insert Successful</h3>";
-  echo "$firstname $lastname was added (uid=$uid['uid'])";
+  echo "$firstname $lastname was added (uid={$uid['uid']})";
   
   pg_close();
 ?>
