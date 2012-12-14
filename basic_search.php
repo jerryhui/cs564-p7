@@ -9,15 +9,7 @@
 <h2>Basic search: result</h2>
 <?php include 'menu.php' ?>
 
-   <tr>
-     <td colspan="2" align="center" valign="top">
-      Here are the search results (searched by title):<br>
-       <table border="1" width="75%">
-        <tr>
-         <td align="center" bgcolor="#cccccc"><b>First Name</b></td>
-         <td align="center" bgcolor="#cccccc"><b>Last Name<br/>(or band name)</b></td>
-         <td align="center" bgcolor="#cccccc"><b>Email</b></td>
-        </tr>	
+      <p>Here are the search results (search by last name)</p>
  <?php
    // First check the itemid to see if it has been set
   if (! isset($_POST['lastname'])) {
@@ -26,16 +18,17 @@
 	" </body>\n</html>\n";
     exit();
   }
-  $lastname = $_POST['lastname'];
+  $lastname = str_replace("'","''",$_POST['lastname']);
   // Connect to the Database
   pg_connect('dbname=cs564_f12 host=postgres.cs.wisc.edu') 
 	or die ("Couldn't Connect ".pg_last_error()); 
   // Get category name and item counts
   $query = "SELECT DISTINCT *,(M.uid IS NULL) AS isband
-  FROM instant_schema.locations L, instant_schema.users U
+  FROM instant_schema.users U
+  left join instant_schema.locations L on U.lid=L.lid
   left join instant_schema.musicians M on U.uid=M.uid
   left join instant_schema.bands B on U.uid=B.uid
-  WHERE U.lid=L.lid where lastname='".$lastname."'";
+  WHERE lastname='$lastname'";
   // Execute the query and check for errors
   $result = pg_query($query);
   if (!$result) {
@@ -57,7 +50,8 @@
     }
     echo "</span>";
     
-    echo "<span class='location'>" . $row['city'] . ", " . $row['state'] . "</span>";
+    if ($row['city']!="") echo "<span class='location'>" . $row['city'] . ", " . $row['state'] . 
+"</span>";
     
     // contact info
     echo "<div class='contacts'>";
@@ -78,9 +72,6 @@
    }
   pg_close();
 ?>
- </table>
-     </td>
-    </tr>
         <?php echo "<a href=\"index.php\">Back to main page</a>\n"?>
  </body>
 
