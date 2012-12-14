@@ -17,7 +17,8 @@
   $email = $_POST['email'];
   $about = $_POST['about'];
 
-  // Connect to the Database
+  str_replace("'", "''", $lastname, $firstname, $email, $about);
+ // Connect to the Database
   pg_connect('dbname=cs564_f12 host=postgres.cs.wisc.edu') 
 	or die ("Couldn't Connect ".pg_last_error()); 
 

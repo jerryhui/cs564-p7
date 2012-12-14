@@ -16,6 +16,9 @@
   $firstname = trim($_POST['firstname']);
   $lastname = $_POST['lastname'];
 
+  str_replace("'", "''", $firstname);
+  str_replace("'", "''", $lastname);
+
   // Connect to the Database
   pg_connect('dbname=cs564_f12 host=postgres.cs.wisc.edu') 
 	or die ("Couldn't Connect ".pg_last_error()); 
@@ -24,8 +27,9 @@
   $query = "delete from instant_schema.users WHERE ";
   if ( strlen($firstname)) {
   	$query .= "firstname = '$firstname' AND ";
-  $query .= "lastname = '$lastname';";
   }
+  $query .= "lastname = '$lastname';";
+  
   // Execute the query (deletion) and check for errors
   $result = pg_query($query);
   if (!$result) {
