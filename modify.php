@@ -57,7 +57,7 @@
   pg_close();
 ?>
 
-        <?php echo "<a href=\"index.html\">Back to main page</a>\n"?>
+        <?php echo "<a href=\"index.php\">Back to main page</a>\n"?>
  </body>
 
 </html>
