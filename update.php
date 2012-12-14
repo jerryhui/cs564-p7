@@ -12,7 +12,7 @@
   <?php include 'menu.php'; ?>
   <h3>Modify the Attributes of an Existing Book</h3>
 
-Enter an exact title first (so that we can locate the book).<br>
+Enter an exact Last Name first (so that we can locate the user).<br>
 Then enter values for the remaining attributes.<br> 
 We will set those attributes to the entered values.
   <table width="40%" border="0" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
