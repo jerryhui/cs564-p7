@@ -1,10 +1,14 @@
 <html>
 
- <head><title>CS 564 PHP Project Modify Result Page</title></head>
+ <head><title>CS 564 PHP Project Modify Result Page</title>
+<link rel="stylesheet" type="text/css" href="instantFest.css" />
+</head>
 
  <body>      
 	
  <?php
+  include 'menu.php';
+
    // First check the itemid to see if it has been set
   if (!isset($_POST['lastname']) ) {
     echo "  <h3><i>Error, lastname not set to an acceptable value</i></h3>\n".
