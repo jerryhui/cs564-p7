@@ -1,9 +1,14 @@
 <html>
 
- <head><title>CS 564 PHP Project Insert Result Page</title></head>
+ <head>
+<title>CS 564 PHP Project Insert Result Page</title>
+<link rel="stylesheet" type="text/css" href="instantFest.css" />
+</head>
 
  <body>      
-	
+
+<h2>Create new user</h2>
+<?php include 'menu.php'; ?>	
  <?php
    // First make sure that all the requested user information has been set
   if (!isset($_POST['lastname']) ) {
