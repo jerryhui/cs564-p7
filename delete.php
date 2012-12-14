@@ -16,8 +16,8 @@
   $firstname = trim($_POST['firstname']);
   $lastname = $_POST['lastname'];
 
-  str_replace("'", "''", $firstname);
-  str_replace("'", "''", $lastname);
+  $firstname = str_replace("'", "''", $firstname);
+  $lastname = str_replace("'", "''", $lastname);
 
   // Connect to the Database
   pg_connect('dbname=cs564_f12 host=postgres.cs.wisc.edu') 

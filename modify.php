@@ -17,10 +17,10 @@
   $email = $_POST['email'];
   $about = $_POST['about'];
 
-  str_replace("'", "''", $lastname);
-  str_replace("'", "''", $firstname);
-  str_replace("'", "''", $email);
-  str_replace("'", "''", $about);
+  $lastname = str_replace("'", "''", $lastname);
+  $firstname = str_replace("'", "''", $firstname);
+  $email = str_replace("'", "''", $email);
+  $about = str_replace("'", "''", $about);
 
  // Connect to the Database
   pg_connect('dbname=cs564_f12 host=postgres.cs.wisc.edu') 
