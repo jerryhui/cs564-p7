@@ -6,6 +6,9 @@
  </head>
 
  <body>
+<h2>Basic search: result</h2>
+<?php include 'menu.php' ?>
+
    <tr>
      <td colspan="2" align="center" valign="top">
       Here are the search results (searched by title):<br>
@@ -58,7 +61,7 @@
  </table>
      </td>
     </tr>
-        <?php echo "<a href=\"index.html\">Back to main page</a>\n"?>
+        <?php echo "<a href=\"index.php\">Back to main page</a>\n"?>
  </body>
 
 </html>
