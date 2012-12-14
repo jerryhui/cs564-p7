@@ -63,11 +63,16 @@ We will set those attributes to the entered values.
 	<td height="30" class="deepred" width "48%"><font face="Times New Roman, Times, serif">Email Address</font></td>
 	<td height="30" class="deepred" width "52%"><input type="text" name="email"></td>
       </tr>
+	<tr>
+	  <td>User type</td>
+	  <td><input type="radio" name="usertype" value="musician" />Musician&nbsp;<input 
+type="radio" name="usertype" value="band" />Band</td>
+	</tr>
 
         <td height="24" align="center" width="48%">
         </td>
         <td align="center" width="52%"><input type="submit" name="Submit" value="Submit"><input type="reset" name="Submit2" value="Reset">
-<input type="hidden" name="usertype" value="musician" />
+<!-- <input type="hidden" name="usertype" value="musician" />-->
         </td>
       </tr>
     </form>
